@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "id": "PINATAS_DONA_GLORIA_ILIMITADO",
+  "status": "ACTIVE",
+  "business": {
+    "canonical_name": "Piñatas de Doña Gloria",
+    "display_name": "Piñatas personalizadas en Quecholac",
+    "owner_name": "Gloria Ramirez",
+    "location": "Quecholac, Puebla, México",
+    "public_page": "https://miguelangelruizfull-ai.github.io/negocios/pinatas-personalizadas-quecholac/"
+  },
+  "scope": {
+    "project": "primer-pedido-gratis",
+    "exception_type": "UNLIMITED_SAMPLES_AND_ORDERS",
+    "exclusive_business_exception": true
+  },
+  "rules": [
+    "Para Piñatas de Doña Gloria no aplicar límite de una primera muestra gratis.",
+    "Permitir crear muestras, variantes y nuevos pedidos sin límite de cantidad.",
+    "Cada solicitud nueva puede producir una pieza nueva usando únicamente datos y material verificable disponible.",
+    "La excepción no se extiende automáticamente a otros negocios.",
+    "No inventar precios, promociones, personajes, medidas, disponibilidad ni condiciones de entrega.",
+    "No publicar ni programar contenido sin autorización explícita.",
+    "Se pueden reutilizar datos públicos ya aprobados del negocio cuando sigan vigentes.",
+    "Si el usuario pide producir un pedido para este negocio, tratar la solicitud como autorizada para creación del derivado solicitado."
+  ],
+  "defaults": {
+    "recommendation_mode": "Recomiéndame",
+    "goal": "Conseguir pedidos",
+    "output_limit": "unlimited",
+    "publication_authorized": false
+  },
+  "operational_instruction": "Cuando el negocio coincida de forma inequívoca con Piñatas de Doña Gloria / Piñatas personalizadas en Quecholac, omite cualquier bloqueo por 'primera muestra' o número previo de pedidos y continúa con la producción solicitada. Mantén las reglas de verificación de datos y autorización de publicación."
+}
