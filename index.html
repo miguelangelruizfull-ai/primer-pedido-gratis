@@ -101,6 +101,7 @@ textarea{min-height:78px;resize:vertical}
 .goalBtn.selected{border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--purple),var(--pink),var(--coral));box-shadow:0 10px 26px #9f3dba22}
 .shareHint{margin-top:12px;padding:11px 12px;border-radius:14px;background:#f3edff;border:1px solid #e1d3fb;color:#594d67;font-size:.86rem}
 .logoState{margin-top:7px;color:var(--muted);font-size:.82rem;font-weight:750}
+.specialBenefit{grid-column:1/-1;margin:0;padding:12px 14px;background:#ecfff3;border:1px solid #8ccba5;border-radius:14px;color:#155b35;font-size:.87rem;font-weight:750}
 input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid #bfa6ff;outline-offset:2px;border-color:#9f67ff}
 .req{color:var(--pink)}
 .uploadBox{border:2px dashed #ccbaf0;border-radius:20px;padding:16px;background:linear-gradient(135deg,#fbf7ff,#fff8fc)}
@@ -434,6 +435,7 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
           <p class="stepCopy">Solo lo necesario para que la propuesta sea útil.</p>
           <div class="formGrid">
             <div class="field full"><label for="contact">Tu WhatsApp <span class="req">*</span></label><input id="contact" inputmode="tel" autocomplete="tel" required placeholder="Ej. 249 123 4567"></div>
+            <p class="specialBenefit hidden" id="unlimitedBenefit" role="status">MAXIMILIANO BAKERY: muestras gratuitas ilimitadas, sin caducidad. Cada propuesta se publica únicamente con autorización.</p>
             <div class="field full"><label for="location">Ubicación del negocio</label><input id="location" autocomplete="address-level2" placeholder="Ciudad, localidad o pega tu enlace de Maps"></div>
             <div class="field full"><label for="confirmed">Cuéntame sobre tu producto o servicio</label><textarea id="confirmed" placeholder="Ej. Pasteles personalizados, tamaños, sabores, precios desde..."></textarea></div>
           </div>
@@ -491,6 +493,8 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
 
 <script>
 const WA_NUMBER="522491211725";
+// Beneficio comercial de reconocimiento en el formulario. La validación de identidad se realiza en WhatsApp.
+const UNLIMITED_SAMPLES={business:"MAXIMILIANOBAKERY",whatsapp:"2223666628"};
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
 const source=(params.get("src")||"directo").replace(/[^a-zA-Z0-9_-]/g,"").slice(0,30);
@@ -502,6 +506,20 @@ let publishingStage="No indicado";
 let selectedGoal="";
 
 function val(id){const el=$(id);return el&&typeof el.value==="string"?el.value.trim():"";}
+function normalizeBusiness(text){
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+}
+function normalizePhone(text){
+  const digits=text.replace(/\D/g,"");
+  return digits.length===12 && digits.startsWith("52") ? digits.slice(2) : digits;
+}
+function hasUnlimitedSamples(){
+  return normalizeBusiness(val("brand"))===UNLIMITED_SAMPLES.business &&
+    normalizePhone(val("contact"))===UNLIMITED_SAMPLES.whatsapp;
+}
+function updateUnlimitedBenefit(){
+  $("unlimitedBenefit").classList.toggle("hidden",!hasUnlimitedSamples());
+}
 function orderId(){
   if(currentOrderId) return currentOrderId;
   const d=new Date(),p=n=>String(n).padStart(2,"0");
@@ -516,12 +534,14 @@ function files(){
 }
 function buildMessage(){
   const f=files();
+  const unlimited=hasUnlimitedSamples();
   return [
-    "*NUEVO PEDIDO — MUESTRA GRATIS*",
+    unlimited?"*NUEVO PEDIDO — MUESTRA GRATIS · BENEFICIO ILIMITADO*":"*NUEVO PEDIDO — MUESTRA GRATIS*",
     "Pedido: "+orderId(),
     "",
     "*Producto / servicio:* "+(val("product")||"No indicado"),
     val("brand")?"*Negocio:* "+val("brand"):null,
+    unlimited?"*Beneficio:* MAXIMILIANO BAKERY · MUESTRAS GRATIS ILIMITADAS (verificar contacto en WhatsApp)":null,
     "*Tipo:* "+businessMode,
     "*Objetivo:* "+(selectedGoal||"Recomiéndame"),
     val("contact")?"*WhatsApp:* "+val("contact"):null,
@@ -631,6 +651,8 @@ $("back").addEventListener("click",()=>showStep(Math.max(1,currentStep-1)));
 $("orderForm").addEventListener("submit",e=>{e.preventDefault();if(validateStep(3))shareOrder();});
 $("images").addEventListener("change",renderImages);
 $("logo").addEventListener("change",renderLogo);
+$("brand").addEventListener("input",updateUnlimitedBenefit);
+$("contact").addEventListener("input",updateUnlimitedBenefit);
 document.querySelectorAll(".goalBtn").forEach(btn=>btn.addEventListener("click",()=>chooseGoal(btn)));
 document.querySelectorAll(".choiceCard").forEach(btn=>btn.addEventListener("click",()=>chooseMode(btn)));
 document.querySelectorAll(".stageBtn").forEach(btn=>btn.addEventListener("click",()=>chooseStage(btn)));
@@ -684,6 +706,7 @@ const formObserver=new IntersectionObserver(entries=>{
 formObserver.observe($("orderForm"));
 updateSummary();
 renderLogo();
+updateUnlimitedBenefit();
 </script>
 </body>
 </html>
