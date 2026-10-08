@@ -418,7 +418,7 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
             <div class="field full uploadBox">
               <label for="images">Fotos <span class="req">*</span></label>
               <input id="images" type="file" accept="image/*" multiple required aria-describedby="photoHelp">
-              <p class="uploadHelp" id="photoHelp">Verás tus fotos aquí antes de continuar. Al terminar, podrás compartirlas por WhatsApp. Si tu navegador no permite adjuntarlas, agrégalas en el chat.</p>
+              <p class="uploadHelp" id="photoHelp">Revisa las fotos seleccionadas aquí. Al abrir WhatsApp, tendrás que adjuntarlas desde tu galería en el chat del 249 121 1725; el sitio no puede adjuntarlas automáticamente.</p>
               <div class="thumbGrid hidden" id="imagePreview"></div>
             </div>
             <div class="field full">
@@ -449,8 +449,8 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
             <button class="goalBtn" type="button" data-goal="Recomiéndame">Recomiéndame</button>
           </div>
           <input id="notes" type="hidden" value="">
-          <div class="shareHint"><strong>Fotos + logo:</strong> al enviar, el teléfono intentará compartir el pedido y los archivos juntos. En Android, elige WhatsApp cuando aparezcan las opciones para compartir.</div>
-          <div class="consent"><input id="consent" type="checkbox" required><label for="consent">Acepto enviar esta información y las imágenes para preparar mi muestra.</label></div>
+          <div class="shareHint"><strong>Envío directo:</strong> el botón abrirá el chat de WhatsApp del 249 121 1725 con los datos de tu pedido. Adjunta las fotos y el logo en ese chat y pulsa Enviar. Los archivos no se adjuntan automáticamente.</div>
+          <div class="consent"><input id="consent" type="checkbox" required><label for="consent">Acepto preparar esta solicitud en WhatsApp y adjuntar las imágenes en el chat para mi muestra.</label></div>
         </div>
 
         <div class="actions">
@@ -463,12 +463,6 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
         <p class="status" id="status" aria-live="polite"></p>
       </div>
 
-      <div class="success" id="success">
-        <div class="successMark">✓</div>
-        <h3>Pedido compartido.</h3>
-        <p>Confirma que enviaste el mensaje y los archivos al WhatsApp del servicio. Compartir no confirma su recepción.</p>
-        <a class="heroAction" href="https://wa.me/522491211725" target="_blank" rel="noopener">Abrir WhatsApp</a>
-      </div>
     </form>
 
     <aside class="summaryCard">
@@ -519,10 +513,6 @@ function files(){
     photos:[...($("images").files||[])],
     logos:[...($("logo").files||[])]
   };
-}
-function allShareFiles(){
-  const f=files();
-  return [...f.photos,...f.logos];
 }
 function buildMessage(){
   const f=files();
@@ -625,37 +615,11 @@ function chooseStage(btn){
   btn.classList.add("selected");
   publishingStage=btn.dataset.stage||"No indicado";
 }
-function markSuccess(){
-  $("formFlow").classList.add("hidden");
-  $("success").classList.add("show");
-  document.querySelector("#pedido").scrollIntoView({behavior:"smooth",block:"center"});
-}
-function openWhatsappFallback(reason=""){
+function shareOrder(){
   const url="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(buildMessage());
-  window.open(url,"_blank","noopener,noreferrer");
-  setStatus((reason?reason+" ":"")+"WhatsApp se abrió con el pedido. Adjunta las fotos que ves arriba antes de enviarlo.","error");
-}
-async function shareOrder(){
-  const shareFiles=allShareFiles();
-  const data={title:"Pedido — "+(val("brand")||val("product")||"Muestra gratis"),text:buildMessage(),files:shareFiles};
-  if(navigator.share){
-    try{
-      if(!navigator.canShare || navigator.canShare({files:shareFiles})){
-        setStatus("Preparando tu pedido con fotos y logo…","ok");
-        await navigator.share(data);
-        markSuccess();
-        return;
-      }
-    }catch(err){
-      if(err && err.name==="AbortError"){
-        setStatus("Envío cancelado. Puedes intentarlo de nuevo.");
-        return;
-      }
-      openWhatsappFallback("El teléfono no permitió adjuntar los archivos automáticamente.");
-      return;
-    }
-  }
-  openWhatsappFallback("Este navegador no admite compartir archivos directamente.");
+  setStatus("Abriendo WhatsApp 249 121 1725. Adjunta tus fotos y logo en el chat antes de enviar.","ok");
+  // Mismo destino en móviles y escritorio: abre el chat específico, no el menú de compartir.
+  window.location.assign(url);
 }
 function keepActiveFieldVisible(el){
   if(window.innerWidth>700) return;
@@ -664,7 +628,7 @@ function keepActiveFieldVisible(el){
 
 $("next").addEventListener("click",()=>{if(validateStep(currentStep))showStep(Math.min(3,currentStep+1));});
 $("back").addEventListener("click",()=>showStep(Math.max(1,currentStep-1)));
-$("orderForm").addEventListener("submit",async e=>{e.preventDefault();if(validateStep(3))await shareOrder();});
+$("orderForm").addEventListener("submit",e=>{e.preventDefault();if(validateStep(3))shareOrder();});
 $("images").addEventListener("change",renderImages);
 $("logo").addEventListener("change",renderLogo);
 document.querySelectorAll(".goalBtn").forEach(btn=>btn.addEventListener("click",()=>chooseGoal(btn)));
