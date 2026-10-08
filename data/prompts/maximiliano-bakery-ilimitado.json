@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "id": "MAXIMILIANO_BAKERY_ILIMITADO",
+  "status": "ACTIVE",
+  "effective_date": "2026-10-08",
+  "business": {
+    "canonical_name": "MAXIMILIANO BAKERY",
+    "display_name": "Maximiliano Bakery",
+    "category": "Pasteles personalizados y repostería",
+    "whatsapp": "2223666628",
+    "location_url": "https://maps.app.goo.gl/w3BU4Wqq2Ywgoa3Q6?g_st=ac"
+  },
+  "scope": {
+    "project": "primer-pedido-gratis",
+    "exception_type": "UNLIMITED_FREE_SAMPLES",
+    "exclusive_business_exception": true,
+    "expiration": null,
+    "latest_reference_order": "MUESTRA-20261008-1453-U9DB"
+  },
+  "rules": [
+    "Para MAXIMILIANO BAKERY no aplicar el límite comercial de primera muestra gratis.",
+    "Permitir crear muestras promocionales gratuitas y variantes sin límite de cantidad, a solicitud del usuario.",
+    "La autorización aplica solo a MAXIMILIANO BAKERY; verificar la identidad por el contacto 2223666628 antes de aplicar el beneficio en la atención por WhatsApp.",
+    "Cada muestra se elaborará con las fotos y los datos reales del negocio disponibles para el pedido correspondiente.",
+    "No inventar sabores, precios, tamaños, tiempos de entrega, promociones ni disponibilidad.",
+    "No publicar, compartir públicamente ni programar contenido sin autorización explícita para cada resultado.",
+    "Esta excepción no cambia las condiciones del resto de los negocios.",
+    "El formulario estático solo identifica el beneficio y lo marca en el mensaje de WhatsApp; no autentica el negocio ni controla cuotas."
+  ],
+  "defaults": {
+    "recommendation_mode": "Recomiéndame",
+    "goal": "Recomiéndame",
+    "output_limit": "unlimited",
+    "free_samples": true,
+    "publication_authorized": false
+  },
+  "operational_instruction": "Si se confirma una solicitud de MAXIMILIANO BAKERY mediante su nombre y contacto, continuar con la producción de nuevas muestras gratuitas aunque ya tenga pedidos o muestras anteriores. Validar contenido con material real y exigir autorización expresa antes de publicar."
+}
