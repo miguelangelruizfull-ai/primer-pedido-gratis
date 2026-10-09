@@ -435,7 +435,7 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
           <p class="stepCopy">Solo lo necesario para que la propuesta sea útil.</p>
           <div class="formGrid">
             <div class="field full"><label for="contact">Tu WhatsApp <span class="req">*</span></label><input id="contact" inputmode="tel" autocomplete="tel" required placeholder="Ej. 249 123 4567"></div>
-            <p class="specialBenefit hidden" id="unlimitedBenefit" role="status">MAXIMILIANO BAKERY: muestras gratuitas ilimitadas, sin caducidad. Cada propuesta se publica únicamente con autorización.</p>
+            <p class="specialBenefit hidden" id="unlimitedBenefit" role="status">Muestras gratuitas ilimitadas, sin caducidad. Cada propuesta se publica únicamente con autorización.</p>
             <div class="field full"><label for="location">Ubicación del negocio</label><input id="location" autocomplete="address-level2" placeholder="Ciudad, localidad o pega tu enlace de Maps"></div>
             <div class="field full"><label for="confirmed">Cuéntame sobre tu producto o servicio</label><textarea id="confirmed" placeholder="Ej. Pasteles personalizados, tamaños, sabores, precios desde..."></textarea></div>
           </div>
@@ -494,7 +494,10 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
 <script>
 const WA_NUMBER="522491211725";
 // Beneficio comercial de reconocimiento en el formulario. La validación de identidad se realiza en WhatsApp.
-const UNLIMITED_SAMPLES={business:"MAXIMILIANOBAKERY",whatsapp:"2223666628"};
+const UNLIMITED_SAMPLES=[
+  {business:"MAXIMILIANOBAKERY",displayName:"MAXIMILIANO BAKERY",whatsapp:"2223666628"},
+  {business:"AFLAUTOS",displayName:"AFL AUTOS",whatsapp:"2491151388"}
+];
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
 const source=(params.get("src")||"directo").replace(/[^a-zA-Z0-9_-]/g,"").slice(0,30);
@@ -513,12 +516,19 @@ function normalizePhone(text){
   const digits=text.replace(/\D/g,"");
   return digits.length===12 && digits.startsWith("52") ? digits.slice(2) : digits;
 }
+function getUnlimitedBenefit(){
+  const business=normalizeBusiness(val("brand"));
+  const whatsapp=normalizePhone(val("contact"));
+  return UNLIMITED_SAMPLES.find(item=>item.business===business && item.whatsapp===whatsapp)||null;
+}
 function hasUnlimitedSamples(){
-  return normalizeBusiness(val("brand"))===UNLIMITED_SAMPLES.business &&
-    normalizePhone(val("contact"))===UNLIMITED_SAMPLES.whatsapp;
+  return Boolean(getUnlimitedBenefit());
 }
 function updateUnlimitedBenefit(){
-  $("unlimitedBenefit").classList.toggle("hidden",!hasUnlimitedSamples());
+  const benefit=getUnlimitedBenefit();
+  const el=$("unlimitedBenefit");
+  el.classList.toggle("hidden",!benefit);
+  el.textContent=benefit?benefit.displayName+": muestras gratuitas ilimitadas, sin caducidad. Cada propuesta se publica únicamente con autorización.":"";
 }
 function orderId(){
   if(currentOrderId) return currentOrderId;
@@ -534,14 +544,15 @@ function files(){
 }
 function buildMessage(){
   const f=files();
-  const unlimited=hasUnlimitedSamples();
+  const unlimitedBenefit=getUnlimitedBenefit();
+  const unlimited=Boolean(unlimitedBenefit);
   return [
     unlimited?"*NUEVO PEDIDO — MUESTRA GRATIS · BENEFICIO ILIMITADO*":"*NUEVO PEDIDO — MUESTRA GRATIS*",
     "Pedido: "+orderId(),
     "",
     "*Producto / servicio:* "+(val("product")||"No indicado"),
     val("brand")?"*Negocio:* "+val("brand"):null,
-    unlimited?"*Beneficio:* MAXIMILIANO BAKERY · MUESTRAS GRATIS ILIMITADAS (verificar contacto en WhatsApp)":null,
+    unlimited?"*Beneficio:* "+unlimitedBenefit.displayName+" · MUESTRAS GRATIS ILIMITADAS (verificar contacto en WhatsApp)":null,
     "*Tipo:* "+businessMode,
     "*Objetivo:* "+(selectedGoal||"Recomiéndame"),
     val("contact")?"*WhatsApp:* "+val("contact"):null,
