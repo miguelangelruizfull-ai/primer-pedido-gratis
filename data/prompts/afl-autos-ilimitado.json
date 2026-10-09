@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "id": "AFL_AUTOS_ILIMITADO",
+  "status": "ACTIVE",
+  "effective_date": "2026-10-09",
+  "business": {
+    "canonical_name": "AFL AUTOS",
+    "display_name": "AFL AUTOS",
+    "category": "Venta de vehículos",
+    "whatsapp": "2491151388",
+    "location": "Tecamachalco, Puebla, México"
+  },
+  "scope": {
+    "project": "primer-pedido-gratis",
+    "exception_type": "UNLIMITED_FREE_SAMPLES",
+    "exclusive_business_exception": true,
+    "expiration": null,
+    "latest_reference_order": "MUESTRA-20261009-0944-MCDT"
+  },
+  "rules": [
+    "Para AFL AUTOS no aplicar el límite comercial de una primera muestra gratis.",
+    "Permitir crear muestras promocionales gratuitas, variantes y nuevos pedidos de muestra sin límite de cantidad, a solicitud del negocio.",
+    "Reconocer el beneficio solo cuando coincidan el nombre AFL AUTOS y WhatsApp 2491151388; confirmar la identidad por WhatsApp antes de aplicar la excepción.",
+    "Trabajar con fotografías reales y equipamiento comprobable de cada vehículo; no inventar precios, características, disponibilidad ni condiciones comerciales.",
+    "No mostrar públicamente el VIN completo, documentos de identidad ni material privado del expediente de los vehículos.",
+    "No publicar, compartir públicamente ni programar contenido sin autorización explícita por cada resultado.",
+    "Esta excepción no modifica los beneficios de otros negocios ni convierte otros servicios comerciales en gratuitos o ilimitados.",
+    "El formulario estático solo reconoce el beneficio e identifica el pedido en el mensaje de WhatsApp; no autentica al negocio ni controla cantidades."
+  ],
+  "defaults": {
+    "recommendation_mode": "Recomiéndame",
+    "goal": "Recomiéndame",
+    "output_limit": "unlimited",
+    "free_samples": true,
+    "publication_authorized": false
+  },
+  "operational_instruction": "Con coincidencia de AFL AUTOS y WhatsApp 2491151388, permitir nuevas muestras gratis y variantes sin bloquear por cantidad de muestras previas; validar la información del vehículo y solicitar autorización individual antes de publicar."
+}
