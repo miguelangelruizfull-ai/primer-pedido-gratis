@@ -12,3 +12,14 @@
 El formulario de `index.html` reconoce a MAXIMILIANO BAKERY y AFL AUTOS cuando coinciden el nombre y WhatsApp registrados del negocio. Muestra el aviso del negocio correspondiente y marca el beneficio en el pedido enviado al WhatsApp administrador, para su validación.
 
 **Límite técnico:** este sitio es estático, no tiene autenticación de negocios ni contador de solicitudes. El reconocimiento del beneficio no sustituye la validación de identidad en la atención por WhatsApp; las demás solicitudes siguen bajo la oferta comercial de primera muestra gratis.
+
+
+## Actualización AFL AUTOS · 2026-10-16
+
+F-150 azul 2012, pedido MUESTRA-20261016-0946-27CN. Business/catálogo: 2491638849; precio y visitas de esta unidad: 2491151388. Ambos contactos reconocidos para el beneficio, sujeto a verificación manual.
+
+- facebook: https://www.facebook.com/share/p/14rD6xhCnT3/
+- marketplace: https://www.facebook.com/marketplace/item/1621262002794693/?mibextid=dXMIcH
+- tiktok: https://www.tt.site/t/ZSgFHrgmq/
+
+Datos privados de unidad en Vehiculos y políticas en AFL_AUTOS_COMERCIAL. No publicar VIN ni documentos privados.

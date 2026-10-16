@@ -351,7 +351,15 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
       </div>
     </article>
 
-    <article class="resultCard" id="muestra-afl-autos-f150-fx4-2013" data-result="MUESTRA-20261008-1019-EDI9" style="margin-top:18px">
+    <article class="resultCard" id="muestra-afl-autos-f150-2012" data-result="MUESTRA-20261016-0946-27CN" style="margin-top:18px;display:block">
+<div class="resultCopy"><p class="resultsKicker">AFL AUTOS · Tecamachalco, Puebla</p><h3>Ford F-150 azul 2012 · Motor 5.0 V8</h3><p>Doble cabina y transmisión automática. Importada por aduana; entrega de título, pedimento y factura. Emplacamiento sujeto a los requisitos de cada estado.</p><p>Venta únicamente de contado. Consulta precio y disponibilidad y agenda tu visita.</p><div class="resultActions">
+<a class="resultBtn primary" href="https://wa.me/522491151388?text=Hola%2C%20me%20interesa%20la%20Ford%20F-150%20azul%202012.%20%C2%BFQu%C3%A9%20precio%20tiene%20y%20cu%C3%A1ndo%20puedo%20visitarlos%3F" target="_blank" rel="noopener noreferrer">Pedir precio y agendar visita</a>
+<a class="resultBtn secondary" href="https://www.facebook.com/marketplace/item/1621262002794693/?mibextid=dXMIcH" target="_blank" rel="noopener noreferrer">Ver fotos en Marketplace</a>
+<a class="resultBtn secondary" href="https://www.facebook.com/share/p/14rD6xhCnT3/" target="_blank" rel="noopener noreferrer">Ver Facebook</a>
+<a class="resultBtn secondary" href="https://www.tt.site/t/ZSgFHrgmq/" target="_blank" rel="noopener noreferrer">Ver TikTok</a>
+</div><a class="resultDetailLink" href="https://maps.app.goo.gl/SqYkyPQ2htmqvhAPA" target="_blank" rel="noopener noreferrer">Ver ubicación de AFL AUTOS</a></div></article>
+
+<article class="resultCard" id="muestra-afl-autos-f150-fx4-2013" data-result="MUESTRA-20261008-1019-EDI9" style="margin-top:18px">
       <div class="resultMedia" style="aspect-ratio:4/5">
         <a href="https://www.facebook.com/share/1HuTbZnxfk/" target="_blank" rel="noopener noreferrer" aria-label="Visitar la página de Facebook de AFL AUTOS">
           <img width="1122" height="1402" loading="lazy" src="assets/afl-autos-f150-fx4-2013-muestra-sin-iconos.png" alt="Flyer de AFL AUTOS, Ford F-150 FX4 2013 blanca: fotografías de la camioneta, equipamiento y contacto. Diseño sin iconos.">
@@ -496,7 +504,7 @@ const WA_NUMBER="522491211725";
 // Beneficio comercial de reconocimiento en el formulario. La validación de identidad se realiza en WhatsApp.
 const UNLIMITED_SAMPLES=[
   {business:"MAXIMILIANOBAKERY",displayName:"MAXIMILIANO BAKERY",whatsapp:"2223666628"},
-  {business:"AFLAUTOS",displayName:"AFL AUTOS",whatsapp:"2491151388"}
+  {business:"AFLAUTOS",displayName:"AFL AUTOS",whatsapp:"2491638849",whatsappAliases:["2491151388"]}
 ];
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
@@ -519,7 +527,7 @@ function normalizePhone(text){
 function getUnlimitedBenefit(){
   const business=normalizeBusiness(val("brand"));
   const whatsapp=normalizePhone(val("contact"));
-  return UNLIMITED_SAMPLES.find(item=>item.business===business && item.whatsapp===whatsapp)||null;
+  return UNLIMITED_SAMPLES.find(item=>item.business===business && (item.whatsapp===whatsapp || (item.whatsappAliases||[]).includes(whatsapp)))||null;
 }
 function hasUnlimitedSamples(){
   return Boolean(getUnlimitedBenefit());

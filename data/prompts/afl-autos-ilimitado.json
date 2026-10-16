@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "id": "AFL_AUTOS_ILIMITADO",
   "status": "ACTIVE",
   "effective_date": "2026-10-09",
@@ -7,20 +7,28 @@
     "canonical_name": "AFL AUTOS",
     "display_name": "AFL AUTOS",
     "category": "Venta de vehículos",
-    "whatsapp": "2491151388",
-    "location": "Tecamachalco, Puebla, México"
+    "whatsapp": "2491638849",
+    "location": "Tecamachalco, Puebla, México",
+    "authorized_whatsapp_contacts": [
+      "2491638849",
+      "2491151388"
+    ],
+    "contact_roles": {
+      "business_catalog": "2491638849",
+      "f150_2012_price_visits": "2491151388"
+    }
   },
   "scope": {
     "project": "primer-pedido-gratis",
     "exception_type": "UNLIMITED_FREE_SAMPLES",
     "exclusive_business_exception": true,
     "expiration": null,
-    "latest_reference_order": "MUESTRA-20261009-0944-MCDT"
+    "latest_reference_order": "MUESTRA-20261016-0946-27CN"
   },
   "rules": [
     "Para AFL AUTOS no aplicar el límite comercial de una primera muestra gratis.",
     "Permitir crear muestras promocionales gratuitas, variantes y nuevos pedidos de muestra sin límite de cantidad, a solicitud del negocio.",
-    "Reconocer el beneficio solo cuando coincidan el nombre AFL AUTOS y WhatsApp 2491151388; confirmar la identidad por WhatsApp antes de aplicar la excepción.",
+    "Reconocer el beneficio con nombre AFL AUTOS y cualquiera de los contactos autorizados: 2491638849 o 2491151388; confirmar identidad por WhatsApp.",
     "Trabajar con fotografías reales y equipamiento comprobable de cada vehículo; no inventar precios, características, disponibilidad ni condiciones comerciales.",
     "No mostrar públicamente el VIN completo, documentos de identidad ni material privado del expediente de los vehículos.",
     "No publicar, compartir públicamente ni programar contenido sin autorización explícita por cada resultado.",
@@ -34,5 +42,6 @@
     "free_samples": true,
     "publication_authorized": false
   },
-  "operational_instruction": "Con coincidencia de AFL AUTOS y WhatsApp 2491151388, permitir nuevas muestras gratis y variantes sin bloquear por cantidad de muestras previas; validar la información del vehículo y solicitar autorización individual antes de publicar."
+  "operational_instruction": "Permitir muestras ilimitadas para AFL AUTOS con contacto autorizado 2491638849 o 2491151388; confirmar identidad por WhatsApp y autorización individual para publicar.",
+  "updated_at": "2026-10-16"
 }
