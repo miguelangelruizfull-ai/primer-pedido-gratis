@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#152119">
+<meta name="description" content="Solicita el contenido de AFL AUTOS: publicación de Facebook, Marketplace, TikTok o una propuesta recomendada.">
+<meta name="robots" content="noindex,follow">
+<title>Pedidos de contenido | AFL AUTOS</title>
+<style>
+:root{--ink:#16221a;--muted:#5c6a60;--line:#dfe7df;--lime:#c9f386;--pale:#f1f7ed;--white:#fff;--max:800px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#eff6eb 0%,#fff 42%,#f8faf7 100%);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}button,input,textarea{font:inherit}button{cursor:pointer}
+.container{width:min(calc(100% - 32px),var(--max));margin:auto}
+.top{background:#152119;color:white;border-bottom:4px solid var(--lime)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:64px}
+.brand{font-size:1.08rem;font-weight:900;letter-spacing:.02em}.back{color:#eef9e6;text-decoration:none;font-size:.9rem;font-weight:700}.back:hover{text-decoration:underline}
+main{padding:40px 0 60px}
+.tag{display:inline-block;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;font-weight:900;color:#3b5d32}
+h1{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.05;letter-spacing:-.045em;margin:10px 0}
+.intro{max-width:630px;color:var(--muted);margin:0 0 22px}
+.panel{border:1px solid var(--line);background:var(--white);border-radius:22px;padding:24px;box-shadow:0 16px 50px #12230e0a}
+h2{font-size:1.15rem;letter-spacing:-.02em;margin:0 0 12px}
+.channels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.option{display:block;position:relative;border:1.5px solid var(--line);background:#fafcf9;border-radius:16px;padding:15px;cursor:pointer;min-height:112px}
+.option:has(input:checked){border-color:#53813c;background:var(--pale);box-shadow:0 0 0 2px #bad7a7}
+.option input{position:absolute;top:16px;right:14px;width:18px;height:18px;accent-color:#476f33}
+.option strong{display:block;padding-right:23px;font-size:1.03rem}.option small{display:block;margin-top:8px;color:var(--muted);font-size:.82rem;max-width:240px}
+.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}.span{grid-column:1/-1}
+label.field>span{font-weight:750;font-size:.91rem}
+input[type=text],input[type=tel],input[type=url],textarea{width:100%;border:1px solid #cdd9cc;border-radius:11px;background:#fff;min-height:48px;padding:12px 13px;outline:0;color:var(--ink)}
+textarea{min-height:104px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #77a957;outline-offset:2px}
+.help{font-size:.8rem;color:var(--muted)}
+.info{margin:22px 0;padding:14px 16px;background:var(--pale);border-radius:12px;color:#3b5638;font-size:.88rem}
+.info p{margin:0}.info p+p{margin-top:8px}
+.review{margin-top:22px}.review textarea{font-size:.86rem;min-height:255px;background:#f6f8f4;line-height:1.4}
+.actions{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.send{border:0;border-radius:12px;min-height:50px;padding:13px 22px;background:#17251a;color:#fff;font-weight:850}.send:hover{background:#2a462d}
+.note{font-size:.82rem;color:var(--muted);margin:0}
+footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:.84rem}
+@media(max-width:560px){main{padding:28px 0 44px}.panel{padding:17px}.channels{gap:9px}.option{padding:12px;min-height:115px}.option strong{font-size:.94rem}.formGrid{grid-template-columns:1fr}.send{width:100%}.actions{align-items:stretch}.bar{min-height:58px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="container bar"><div class="brand">AFL AUTOS</div><a class="back" href="../">Volver al inicio</a></div></header>
+<main class="container">
+  <div class="tag">Pedidos de contenido</div>
+  <h1>¿Qué vamos a publicar?</h1>
+  <p class="intro">Selecciona el contenido que necesitas para AFL AUTOS. Puedes elegir varios canales o dejar que recomendemos el formato. La solicitud se prepara para enviar por WhatsApp; no se publica automáticamente.</p>
+  <form class="panel" id="orderForm">
+    <h2>1. Elige el canal</h2>
+    <div class="channels" role="group" aria-label="Canales del pedido">
+      <label class="option"><input type="checkbox" name="channel" value="Post de Facebook"><strong>Post Facebook</strong><small>Texto y selección de fotos para el feed.</small></label>
+      <label class="option"><input type="checkbox" name="channel" value="Marketplace"><strong>Marketplace</strong><small>Título, descripción y orden de fotos.</small></label>
+      <label class="option"><input type="checkbox" name="channel" value="TikTok"><strong>TikTok</strong><small>Idea, guion o copy con video real.</small></label>
+      <label class="option"><input type="checkbox" name="channel" value="Recomiéndame" checked><strong>Recomiéndame</strong><small>Elegimos contigo el formato más útil.</small></label>
+    </div>
+    <h2>2. Cuéntanos de la unidad</h2>
+    <div class="formGrid">
+      <label class="field span"><span>Vehículo o producto *</span><input id="unit" type="text" required maxlength="150" placeholder="Ej. Ford F-150 2017 cortita" autocomplete="off"></label>
+      <label class="field span"><span>Características y documentación confirmadas</span><textarea id="details" maxlength="1500" placeholder="Año, motor, transmisión, tracción, documentos... Solo información confirmada."></textarea></label>
+      <label class="field span"><span>Enlace del material en Drive (opcional)</span><input id="drive" type="url" placeholder="https://drive.google.com/..." inputmode="url"><small class="help">Si no tienes enlace, envía las fotos o el video directamente por WhatsApp después de abrir el chat.</small></label>
+      <label class="field"><span>WhatsApp del negocio *</span><input id="contact" type="tel" required inputmode="tel" value="2491151388" pattern="[0-9+ ()-]{10,22}" autocomplete="tel"></label>
+      <label class="field"><span>Objetivo del pedido</span><input id="goal" type="text" value="Generar consultas y visitas" maxlength="150"></label>
+      <label class="field span"><span>Indicaciones adicionales (opcional)</span><textarea id="notes" maxlength="1000" placeholder="Qué mejorar, estilo, fotos elegidas o qué deseas evitar."></textarea></label>
+    </div>
+    <div class="info"><p><strong>Reglas de AFL AUTOS:</strong> sin precios públicos, sin iconos ni emojis, sin repetir características y sin inventar datos. Contacto de ventas principal: 249 115 1388.</p><p>Las muestras gratuitas ilimitadas requieren verificar el contacto por WhatsApp. Enviar una solicitud no autoriza publicar, editar posts anteriores ni activar anuncios pagados.</p></div>
+    <div class="review"><h2>3. Revisa tu solicitud</h2><textarea id="preview" readonly aria-label="Vista previa del mensaje que se enviará por WhatsApp"></textarea></div>
+    <div class="actions"><button class="send" type="submit">Preparar pedido por WhatsApp</button><p class="note">Se abrirá el WhatsApp de pedidos (249 121 1725). Revisa el mensaje y pulsa Enviar. Adjunta allí tus archivos; esta página no los transmite.</p></div>
+  </form>
+</main>
+<footer><div class="container">AFL AUTOS · Tecamachalco, Puebla. Solicitudes de contenido sujetas a revisión y aprobación.</div></footer>
+<script>
+(function(){
+  "use strict";
+  const form=document.getElementById("orderForm");
+  const checks=[...document.querySelectorAll('input[name="channel"]')];
+  const recommended=checks.find(el=>el.value==="Recomiéndame");
+  const ids=["unit","details","drive","contact","goal","notes"];
+  const fields=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+  const preview=document.getElementById("preview");
+  const two=n=>String(n).padStart(2,"0");
+  const when=new Date();
+  const requestId="MUESTRA-"+when.getFullYear()+two(when.getMonth()+1)+two(when.getDate())+"-"+two(when.getHours())+two(when.getMinutes())+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
+  function channels(){return checks.filter(el=>el.checked).map(el=>el.value)}
+  function message(){
+    const selected=channels();
+    return [
+      "*NUEVO PEDIDO — AFL AUTOS*",
+      "Pedido: "+requestId,
+      "*Negocio:* AFL AUTOS",
+      "*Beneficio:* Muestras gratis ilimitadas (verificar contacto por WhatsApp)",
+      "*Canal solicitado:* "+selected.join(", "),
+      "*Producto / vehículo:* "+(fields.unit.value.trim()||"Pendiente"),
+      fields.details.value.trim()?"*Datos confirmados:* "+fields.details.value.trim():null,
+      fields.drive.value.trim()?"*Material en Drive:* "+fields.drive.value.trim():null,
+      "*WhatsApp del negocio:* "+fields.contact.value.trim(),
+      "*Objetivo:* "+(fields.goal.value.trim()||"Generar consultas y visitas"),
+      fields.notes.value.trim()?"*Indicaciones:* "+fields.notes.value.trim():null,
+      "*Reglas:* Sin precios públicos ni iconos; datos verificados; fotos reales; evitar repeticiones.",
+      "*Estado:* Solicitud de preparación. No publicar sin aprobación.",
+      "Las fotos y videos se adjuntarán en el chat si no se comparte un enlace de Drive."
+    ].filter(Boolean).join("\n");
+  }
+  function render(){preview.value=message()}
+  checks.forEach(el=>el.addEventListener("change",function(){
+    if(this.checked&&this===recommended){checks.forEach(x=>{if(x!==recommended)x.checked=false})}
+    else if(this.checked){recommended.checked=false}
+    if(!channels().length)recommended.checked=true;
+    render();
+  }));
+  ids.forEach(id=>fields[id].addEventListener("input",render));
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(!form.reportValidity())return;
+    const num=fields.contact.value.replace(/\D/g,"");
+    if(num.length!==10 && !(num.length===12&&num.startsWith("52"))){fields.contact.setCustomValidity("Escribe un número válido de 10 dígitos.");fields.contact.reportValidity();return}
+    fields.contact.setCustomValidity("");
+    window.location.assign("https://wa.me/522491211725?text="+encodeURIComponent(message()));
+  });
+  fields.contact.addEventListener("input",()=>fields.contact.setCustomValidity(""));
+  render();
+})();
+</script>
+</body>
+</html>
