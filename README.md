@@ -23,3 +23,17 @@ F-150 azul 2012, pedido MUESTRA-20261016-0946-27CN. Business/catálogo: 24916388
 - tiktok: https://www.tt.site/t/ZSgFHrgmq/
 
 Datos privados de unidad en Vehiculos y políticas en AFL_AUTOS_COMERCIAL. No publicar VIN ni documentos privados.
+
+## Regla AFL AUTOS para pedidos futuros — 2026-10-19
+
+Configuración vigente de beneficio: [data/prompts/afl-autos-ilimitado.json](data/prompts/afl-autos-ilimitado.json), versión 1.2.
+
+- Muestras y variantes ilimitadas bajo validación manual del negocio por WhatsApp.
+- Contacto público principal de AFL AUTOS: 249 115 1388; alternativo: 249 163 8849.
+- Ubicación: Tecamachalco, Puebla. Mapa oficial: https://maps.app.goo.gl/R514wtNLZYqb11Jv6?g_st=awb
+- No exhibir precios de camionetas en contenido público; dirigir consultas al teléfono principal.
+- No usar iconos ni emojis en piezas comerciales del negocio.
+- Ganchos naturales, sin repetir características y solo datos confirmados.
+- No autoriza publicidad pagada, publicación, reprogramación ni cambios en posts existentes.
+- Pedido de referencia más reciente: MUESTRA-20261019-1243-SPP1. El expediente y su seguimiento permanecen en el sistema privado; no cargar fotos RAW, conversaciones ni información sensible aquí.
+- El index.html es un formulario estático con reconocimiento de beneficio; la política del JSON es un contrato documental, no una actualización automática del sitio ni un mecanismo de autenticación.
