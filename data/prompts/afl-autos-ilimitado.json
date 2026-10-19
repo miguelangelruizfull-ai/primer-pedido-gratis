@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "id": "AFL_AUTOS_ILIMITADO",
   "status": "ACTIVE",
   "effective_date": "2026-10-09",
@@ -7,7 +7,7 @@
     "canonical_name": "AFL AUTOS",
     "display_name": "AFL AUTOS",
     "category": "Venta de vehículos",
-    "whatsapp": "2491638849",
+    "whatsapp": "2491151388",
     "location": "Tecamachalco, Puebla, México",
     "authorized_whatsapp_contacts": [
       "2491638849",
@@ -15,15 +15,22 @@
     ],
     "contact_roles": {
       "business_catalog": "2491638849",
-      "f150_2012_price_visits": "2491151388"
-    }
+      "f150_2012_price_visits": "2491151388",
+      "primary_public_cta": "2491151388",
+      "secondary_public_contact": "2491638849"
+    },
+    "primary_public_contact": "2491151388",
+    "alternative_contact": "2491638849",
+    "whatsapp_public_url": "https://wa.me/522491151388",
+    "maps_url": "https://maps.app.goo.gl/R514wtNLZYqb11Jv6?g_st=awb",
+    "tiktok": "@afl.autos"
   },
   "scope": {
     "project": "primer-pedido-gratis",
     "exception_type": "UNLIMITED_FREE_SAMPLES",
     "exclusive_business_exception": true,
     "expiration": null,
-    "latest_reference_order": "MUESTRA-20261016-0946-27CN"
+    "latest_reference_order": "MUESTRA-20261019-1243-SPP1"
   },
   "rules": [
     "Para AFL AUTOS no aplicar el límite comercial de una primera muestra gratis.",
@@ -33,15 +40,26 @@
     "No mostrar públicamente el VIN completo, documentos de identidad ni material privado del expediente de los vehículos.",
     "No publicar, compartir públicamente ni programar contenido sin autorización explícita por cada resultado.",
     "Esta excepción no modifica los beneficios de otros negocios ni convierte otros servicios comerciales en gratuitos o ilimitados.",
-    "El formulario estático solo reconoce el beneficio e identifica el pedido en el mensaje de WhatsApp; no autentica al negocio ni controla cantidades."
+    "El formulario estático solo reconoce el beneficio e identifica el pedido en el mensaje de WhatsApp; no autentica al negocio ni controla cantidades.",
+    "No mostrar precios de vehículos en publicaciones públicas, artes, Reels, TikTok, Marketplace o publicidad. Consultar precio por mensaje o llamada.",
+    "Sin iconos ni emojis en publicaciones comerciales de AFL AUTOS.",
+    "Usar ganchos naturales, evitar repeticiones de características y utilizar únicamente datos y documentación confirmados en el expediente.",
+    "Usar de forma predeterminada el teléfono público principal 2491151388. Mostrar 2491638849 solo cuando aporte.",
+    "El beneficio ilimitado no habilita publicaciones, ediciones de posts, programación ni publicidad pagada sin autorización por pieza y canal.",
+    "El contenido de pedidos y sus imágenes originales se gestionan en el sistema privado AFL_AUTOS_CONTENT_LAB y Drive; no guardar datos privados de prospectos ni documentos en este repositorio público.",
+    "Si un canal requiere precio obligatorio, no inventar ni colocar precios señuelo; consultar la decisión del responsable antes de publicar."
   ],
   "defaults": {
     "recommendation_mode": "Recomiéndame",
     "goal": "Recomiéndame",
     "output_limit": "unlimited",
     "free_samples": true,
-    "publication_authorized": false
+    "publication_authorized": false,
+    "public_price_visible": false,
+    "use_icons_or_emoji": false,
+    "public_cta_phone": "2491151388",
+    "paid_ads_authorized": false
   },
-  "operational_instruction": "Permitir muestras ilimitadas para AFL AUTOS con contacto autorizado 2491638849 o 2491151388; confirmar identidad por WhatsApp y autorización individual para publicar.",
-  "updated_at": "2026-10-16"
+  "operational_instruction": "AFL AUTOS: muestras gratuitas ilimitadas a demanda, identidad verificada por WhatsApp en 2491151388 o 2491638849; por defecto sin precios públicos ni iconos, contacto principal 2491151388. Crear piezas con fotos y datos verificados. Publicar o activar anuncios solo con autorización específica.",
+  "updated_at": "2026-10-19"
 }
