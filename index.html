@@ -218,6 +218,19 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
 .pedidosQuickLink{display:inline-flex;align-items:center;justify-content:center;margin:14px 0 0 10px;min-height:46px;padding:11px 14px;border:1px solid var(--line);background:#fff;color:#352a40;border-radius:14px;text-decoration:none;font-weight:850;font-size:.92rem}
 .pedidosQuickLink:hover{border-color:var(--purple);background:#f8f3ff}
 @media(max-width:640px){.pedidosQuickLink{margin-left:0;width:100%;max-width:260px}}
+
+/* Generador del prompt maestro de fotografía AFL AUTOS */
+.promptTool{padding:12px 0 32px;scroll-margin-top:80px}
+.promptCard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,3vw,28px);box-shadow:var(--shadow)}
+.promptCard h2{margin:5px 0 10px;font-size:clamp(1.65rem,4vw,2.3rem);line-height:1.1;letter-spacing:-.04em}
+.promptIntro{color:var(--muted);max-width:690px;margin:0 0 20px}
+.promptActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.promptOutput{margin-top:20px}
+.promptOutput textarea{display:block;margin-top:8px;min-height:340px;max-height:65vh;line-height:1.6;font-size:.94rem;background:#fcfaff}
+.promptHint{font-size:.84rem;color:var(--muted);margin:8px 0 0}
+.promptActions .btn:disabled{opacity:.5;cursor:default}
+.promptQuickLink{display:inline-flex;align-items:center;min-height:44px;margin:10px 0 0;padding:10px 14px;border:1px solid #bca1ff;border-radius:14px;background:#fff;color:var(--purple);font-weight:900;text-decoration:none}
+@media(max-width:640px){.promptActions{flex-direction:column}.promptActions .btn{width:100%}.promptQuickLink{width:100%;justify-content:center}}
 </style>
 <link rel="canonical" href="https://miguelangelruizfull-ai.github.io/primer-pedido-gratis/">
 <script type="application/ld+json">
@@ -269,6 +282,7 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
           <button class="stageBtn" type="button" data-stage="Voy empezando">Voy empezando</button>
         </div>
         <a class="heroAction" id="primaryCta" href="#pedido">Solicitar muestra gratis</a>
+        <a class="promptQuickLink" href="#prompt-afl">Generador de prompt · Fotos AFL</a>
         <a class="pedidosQuickLink" href="./pedidos/" aria-label="Abrir pedidos de contenido de AFL AUTOS">Pedidos AFL AUTOS</a>
       </div>
 
@@ -289,6 +303,32 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
     </aside>
   </div>
 </header>
+
+
+<section class="promptTool" id="prompt-afl" aria-labelledby="prompt-title">
+  <div class="wrap">
+    <div class="promptCard">
+      <p class="resultsKicker">Herramienta AFL AUTOS</p>
+      <h2 id="prompt-title">Genera tu prompt de fotografías</h2>
+      <p class="promptIntro">Pega el enlace de la carpeta de Drive. Genera el prompt maestro, cópialo y pégalo en ChatGPT para preparar tus fotos de Facebook, Marketplace y WhatsApp.</p>
+      <form id="promptForm" novalidate>
+        <label for="promptDrive">URL de la carpeta de Google Drive</label>
+        <input id="promptDrive" name="drive" type="url" inputmode="url" autocomplete="off" spellcheck="false" required placeholder="https://drive.google.com/drive/folders/..." aria-describedby="promptDriveHint promptStatus">
+        <p class="promptHint" id="promptDriveHint">Utiliza el enlace de una carpeta. La generación ocurre en tu navegador; este botón prepara el texto para copiar.</p>
+        <div class="promptActions">
+          <button class="btn primary" type="submit">Generar prompt</button>
+          <button class="btn ghost" type="button" id="copyPrompt" disabled>Copiar prompt</button>
+        </div>
+        <p class="status" id="promptStatus" role="status" aria-live="polite"></p>
+        <div class="promptOutput" id="promptOutput" hidden>
+          <label for="promptText">Prompt maestro listo para copiar</label>
+          <textarea id="promptText" readonly spellcheck="false"></textarea>
+          <p class="promptHint">Incluye tu prompt completo con la URL indicada, conservando las instrucciones de edición natural y los datos de AFL AUTOS.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
 <section class="formats">
   <div class="wrap">
@@ -504,6 +544,60 @@ input[type=file]::file-selector-button{border:0;border-radius:9px;padding:9px 10
 </footer>
 
 <script>
+// Texto maestro proporcionado por AFL AUTOS. Solo se sustituye la URL.
+const AFL_PHOTO_PROMPT = "PROMPT MAESTRO — AFL AUTOS\n\nEdición profesional de fotografías automotrices\n\nCarpeta de Google Drive:\n{{DRIVE_URL}}\n\nOBJETIVO\n\nRevisa todas las fotografías disponibles en la carpeta de Google Drive y prepara material profesional de venta para:\n\n- Publicaciones de Facebook.\n- Facebook Marketplace.\n- Enviar fotografías a prospectos por WhatsApp.\n- Compartir directamente con clientes interesados.\n\nEl resultado debe verse como una sesión fotográfica automotriz real, profesional y natural. No quiero fotografías que parezcan generadas por inteligencia artificial.\n\n1. ANALIZA Y SELECCIONA\n\n- Visualiza todas las fotografías de la carpeta.\n- Identifica los mejores ángulos exteriores e interiores.\n- Detecta fotografías repetidas, desenfocadas, oscuras o mal encuadradas.\n- Selecciona la mejor portada para generar interés de compra.\n- Conserva fotografías útiles de motor, llantas, rines, tablero, asientos, caja y otros detalles disponibles.\n- Evita fotografías demasiado parecidas.\n- Separa las descartadas antes de eliminar cualquier archivo.\n- No elimines los originales sin autorización.\n\n2. EDICIÓN FOTOGRÁFICA NATURAL\n\nEdita las fotografías originales con ajustes fotográficos convencionales.\n\nAjustes permitidos:\n\n- Corregir exposición e iluminación.\n- Recuperar detalles en sombras.\n- Regular luces altas.\n- Mejorar contraste moderadamente.\n- Corregir balance de blancos.\n- Mejorar nitidez natural.\n- Reducir ruido cuando sea necesario.\n- Corregir inclinaciones.\n- Recortar y mejorar composición.\n- Corregir ligeramente reflejos excesivos sin borrar detalles reales.\n- Mantener un color uniforme entre las fotografías.\n\nPROHIBIDO:\n\n- Cambiar el vehículo, piezas o accesorios.\n- Modificar rines, llantas, faros, parrilla o carrocería.\n- Alterar el color original.\n- Modificar el cielo o generar nubes artificiales.\n- Sustituir fondos.\n- Simular reparaciones.\n- Eliminar golpes, rayones, desgaste u otros defectos reales.\n- Inventar equipamiento.\n- Aplicar filtros HDR exagerados.\n- Utilizar regeneración de imágenes que cambie detalles originales.\n\nLa limpieza debe ser discreta y nunca ocultar el estado real del vehículo. Si una superficie necesita lavado o limpieza física, indícalo en lugar de simularla.\n\nPrioridad absoluta: autenticidad y fidelidad al vehículo original.\n\n3. PREPARA TRES SELECCIONES\n\nFACEBOOK POST\n\nSelecciona aproximadamente 8 a 10 fotografías, priorizando una portada exterior atractiva, diferentes ángulos, interiores y detalles relevantes.\n\nFACEBOOK MARKETPLACE\n\nSelecciona entre 10 y 15 fotografías que permitan evaluar visualmente el vehículo. Prioriza mostrar el exterior completo, interiores, condición real y detalles mecánicos visibles.\n\nWHATSAPP / LEADS\n\nSelecciona 8 a 12 fotografías de alta calidad, ordenadas para enviar individualmente al prospecto.\n\nComienza con una portada atractiva, continúa con las vistas exteriores y termina con interiores y motor.\n\nEvita imágenes repetidas dentro de una misma selección.\n\n4. RENOMBRA LOS ARCHIVOS\n\nUtiliza nombres profesionales y ordenados.\n\nEjemplo:\n\n01_VEHICULO_PORTADA.jpg\n\n02_VEHICULO_FRENTE.jpg\n\n03_VEHICULO_LATERAL.jpg\n\n04_VEHICULO_TRASERA_3_4.jpg\n\n05_VEHICULO_TRASERA.jpg\n\n06_VEHICULO_INTERIOR.jpg\n\n07_VEHICULO_ASIENTOS.jpg\n\n08_VEHICULO_TABLERO.jpg\n\n09_VEHICULO_RINES_LLANTAS.jpg\n\n10_VEHICULO_MOTOR.jpg\n\nSustituye VEHICULO por la marca, modelo y año confirmados. No inventes datos.\n\n5. ORGANIZA GOOGLE DRIVE\n\nDentro de la carpeta original crea estas subcarpetas:\n\n01_FACEBOOK_POST\n\n02_FACEBOOK_MARKETPLACE\n\n03_WHATSAPP_LEADS\n\n04_DESCARTADAS_PARA_REVISION\n\nColoca las fotografías editadas y numeradas en sus respectivas carpetas.\n\nConserva los archivos originales sin modificaciones.\n\nMantén los videos originales intactos, salvo que se solicite su edición.\n\n6. CALIDAD Y FORMATOS\n\n- Exporta fotografías en JPG de alta calidad.\n- Mantén buena resolución.\n- Evita compresión excesiva.\n- Para Facebook utiliza 4:5 cuando el encuadre lo permita.\n- Para Marketplace prioriza mostrar el vehículo completo sin cortes.\n- Para WhatsApp conserva suficiente resolución para ampliar detalles.\n- No estires ni deformes imágenes.\n- No agregues logos, textos, precios ni iconos sobre las fotografías.\n\n7. VERIFICACIÓN FINAL\n\nAntes de terminar:\n\n1. Revisa visualmente las fotografías editadas.\n2. Compara los resultados con los originales.\n3. Comprueba que el vehículo conserve todos sus detalles reales.\n4. Verifica que no existan imágenes repetidas innecesarias.\n5. Confirma que cada carpeta de Drive contenga los archivos correctos.\n6. Genera una vista previa con miniaturas numeradas.\n7. Entrega enlaces directos a las tres carpetas.\n8. Recomienda el orden exacto de fotografías para Facebook, Marketplace y WhatsApp.\n9. Identifica cualquier fotografía que convenga volver a tomar.\n\nIMPORTANTE\n\nNo quiero diseños genéricos, imágenes generadas ni retoques artificiales. Quiero fotografías auténticas, mejor iluminadas, limpias y profesionales, que representen fielmente el vehículo que estamos vendiendo.\n\nNo publiques nada en Facebook ni Marketplace sin mi aprobación.\n\nNo afirmes que una carpeta o archivo está guardado si no verificaste que la operación se completó.\n\nRESULTADO ESPERADO\n\nTres paquetes fotográficos listos para utilizar, con nombres profesionales, edición natural, orden comercial recomendado y enlaces de Google Drive.\n\nNEGOCIO: AFL AUTOS\n\nUBICACIÓN: Tecamachalco, Puebla\n\nCONTACTO: 249 115 1388\n\nOBJETIVO FINAL: Incrementar consultas de compradores reales y facilitar que el prospecto decida agendar una visita.";
+function photoPromptStatus(message,type=""){
+  const status=document.getElementById("promptStatus");
+  status.textContent=message;
+  status.className="status"+(type?" "+type:"");
+}
+function driveFolderUrl(value){
+  try{
+    const url=new URL(value.trim());
+    if(url.protocol!=="https:" || url.hostname!=="drive.google.com" || url.username || url.password || url.port) return null;
+    const folder=/^\/drive\/(?:u\/\d+\/)?folders\/[a-zA-Z0-9_-]+\/?$/.test(url.pathname);
+    return folder?url.href:null;
+  }catch(_){return null;}
+}
+document.getElementById("promptForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  const input=document.getElementById("promptDrive");
+  const url=driveFolderUrl(input.value);
+  if(!url){
+    input.setAttribute("aria-invalid","true");
+    photoPromptStatus("Pega un enlace válido de carpeta: https://drive.google.com/drive/folders/...","error");
+    input.focus();
+    return;
+  }
+  input.removeAttribute("aria-invalid");
+  document.getElementById("promptText").value=AFL_PHOTO_PROMPT.replace("{{DRIVE_URL}}",url);
+  document.getElementById("promptOutput").hidden=false;
+  document.getElementById("copyPrompt").disabled=false;
+  photoPromptStatus("Prompt generado. Pulsa Copiar prompt y pégalo en ChatGPT.","ok");
+});
+document.getElementById("promptDrive").addEventListener("input",()=>{
+  document.getElementById("promptDrive").removeAttribute("aria-invalid");
+  document.getElementById("promptText").value="";
+  document.getElementById("promptOutput").hidden=true;
+  document.getElementById("copyPrompt").disabled=true;
+  photoPromptStatus("");
+});
+document.getElementById("copyPrompt").addEventListener("click",async()=>{
+  const output=document.getElementById("promptText");
+  if(!output.value) return;
+  try{
+    await navigator.clipboard.writeText(output.value);
+    photoPromptStatus("Prompt copiado. Ya puedes pegarlo en ChatGPT.","ok");
+  }catch(_){
+    output.focus();
+    output.select();
+    output.setSelectionRange(0,output.value.length);
+    let copied=false;
+    try{copied=document.execCommand("copy");}catch(_){}
+    photoPromptStatus(copied?"Prompt copiado. Ya puedes pegarlo en ChatGPT.":"Texto seleccionado. Mantén pulsado sobre él y elige Copiar.",copied?"ok":"");
+  }
+});
+
 const WA_NUMBER="522491211725";
 // Beneficio comercial de reconocimiento en el formulario. La validación de identidad se realiza en WhatsApp.
 const UNLIMITED_SAMPLES=[
